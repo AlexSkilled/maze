@@ -8,15 +8,30 @@ public class Field {
 
     public Field(String path){
         coreCell = new Cell();
-        path = path.substring(1, path.length()-1);
-        path = path.replace("W W", " ");
         countPath(path);
     }
 
     private void countPath(String path ) {
-        for (char ch: path.toCharArray()) {
+        char[] c = path.toCharArray();
+        for (int i = 1; i < c.length-1; i++) {
+            char ch = c[i];
             switch (ch) {
                 case 'W':
+                    if (i < c.length-1) {
+                        if (" ".toCharArray()[0] == c[i+1]) {
+                            coreCell.exit();
+                            continue;
+                        }
+                        if (i > 0) {
+                            if (" ".toCharArray()[0] == c[i-1]){
+                            continue;
+                            }
+                        }
+                        if (i == c.length-1) {
+                            coreCell.exit();
+                            continue;
+                        }
+                    }
                     coreCell = coreCell.goForward();
                     break;
                 case 'R':
@@ -26,7 +41,6 @@ public class Field {
                     coreCell.turnLeft();
                     break;
                 case ' ':
-                    coreCell.exit();
                     break;
             }
             if (coreCell.x > maxX) {
