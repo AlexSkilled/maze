@@ -85,34 +85,6 @@ public class Cell {
                 walls[2]!=null  || exitDirection == 2,
                 walls[3]!=null  || exitDirection == 3
         );
-
-//        if (enterDirection != -1 ) {
-//            return getKey(true, walls[1]!=null,walls[2]!=null, walls[3]!=null);
-//        }
-//        if (exitDirection != -1) {
-//            switch (exitDirection){
-//                case 0:
-//                    return getKey(true, walls[1]!=null,walls[2]!=null, walls[3]!=null);
-//                case 1:
-//                    return getKey(walls[0]!=null, true,walls[2]!=null, walls[3]!=null);
-//                case 2:
-//                    return getKey(walls[0]!=null, walls[1]!=null,true, walls[3]!=null);
-//                case 3:
-//                    return getKey(walls[0]!=null, walls[1]!=null,walls[2]!=null, true);
-//
-//            }
-//        }
-//        switch (direction) {
-//            case 0:
-//                return getKey(true, walls[1]!=null,walls[2]!=null, walls[3]!=null);
-//            case 1:
-//                return getKey(walls[0]!=null,true,walls[2]!=null, walls[3]!=null);
-//            case 2:
-//                return getKey(walls[0]!=null, walls[1]!=null,true, walls[3]!=null);
-//            case 3:
-//                return getKey(walls[0]!=null, walls[1]!=null,walls[2]!=null, true);
-//        }
-//        return "";
     }
     private String getKey(boolean north, boolean east, boolean south, boolean west){
         if (north && !south && !west && !east) {
